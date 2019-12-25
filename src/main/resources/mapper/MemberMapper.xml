@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.js.readwrite.mapper.MemberMapper">
+  <select id="selectByName" parameterType="java.lang.String" resultType="com.js.readwrite.entity.Member">
+    select username, age, sex
+    from member
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAll" resultType="com.js.readwrite.entity.Member">
+    select *
+    from member
+  </select>
+  <delete id="delete" parameterType="java.lang.String">
+    delete
+    from member
+    where username = #{username,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.js.readwrite.entity.Member">
+    insert into member (username, age, sex)
+    values (#{username,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="save" parameterType="com.js.readwrite.entity.Member">
+    insert into member (username, age, sex)
+    values (#{username,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="update" parameterType="com.js.readwrite.entity.Member">
+    update member
+    set age = #{age,jdbcType=INTEGER},
+        sex = #{sex,jdbcType=VARCHAR}
+    where username = #{username,jdbcType=VARCHAR}
+  </update>
+</mapper>

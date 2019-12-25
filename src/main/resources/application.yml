@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    master:
+      jdbc-url: jdbc:mysql://localhost:3306/master
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    slave1:
+      jdbc-url: jdbc:mysql://localhost:3306/slave
+      username: root # \u53EA\u8BFB\u8D26\u6237
+      password: root
+      driver-class-name: ccom.mysql.jdbc.Driver
+    slave2:
+      jdbc-url: jdbc:mysql://localhost:3306/slave2
+      username: root # \u53EA\u8BFB\u8D26\u6237
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 8888
